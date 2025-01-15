@@ -1,13 +1,3 @@
-import {
-  API_KEY,
-  AUTH_DOMAIN,
-  PROJECT_ID,
-  STORAGE_BUCKET,
-  MESSAGING_SENDER_ID,
-  APP_ID,
-  MEASUREMENT_ID,
-} from "@env";
-
 import { initializeApp } from "firebase/app";
 import { initializeAuth, getReactNativePersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -16,13 +6,13 @@ import { Slot } from "expo-router";
 import "./global.css";
 
 const firebaseConfig = {
-  apiKey: API_KEY,
-  authDomain: AUTH_DOMAIN,
-  projectId: PROJECT_ID,
-  storageBucket: STORAGE_BUCKET,
-  messagingSenderId: MESSAGING_SENDER_ID,
-  appId: APP_ID,
-  measurementId: MEASUREMENT_ID,
+  apiKey: "AIzaSyCFjKvE2wbCz3tk64JXWvcqbRnDuz0Bh9s",
+  authDomain: "newchat-caeb8.firebaseapp.com",
+  projectId: "newchat-caeb8",
+  storageBucket: "newchat-caeb8.firebasestorage.app",
+  messagingSenderId: "664877444849",
+  appId: "1:664877444849:web:38abb0414bf07780090350",
+  measurementId: "G-S4PS90K5D7",
 };
 
 const app = initializeApp(firebaseConfig);

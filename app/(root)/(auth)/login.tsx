@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text, Button, TextInput } from "react-native";
 import { router } from "expo-router";
 import { useState } from "react";
+import { StatusBar } from "expo-status-bar";
 
 const login = () => {
   const [email, setEmail] = useState<string>("");
@@ -14,8 +15,8 @@ const login = () => {
     if (!email) alert("Please enter your email");
     if (!pass) alert("Please enter your password");
 
-    await signInWithEmailAndPassword(auth, email, pass)
-      .then(() => router.replace("/chat"))
+    signInWithEmailAndPassword(auth, email, pass)
+      .then(() => router.replace("/(root)/(tabs)"))
       .catch((error) => alert(error.message));
   };
 
@@ -38,6 +39,7 @@ const login = () => {
         />
       </View>
       <Button title="Login" onPress={loginIn} />
+      <StatusBar style="dark" />
     </SafeAreaView>
   );
 };

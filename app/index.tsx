@@ -1,13 +1,14 @@
-import { APIKEY } from "@env";
 import { router } from "expo-router";
-import { Button, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { Button } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default () => {
-  console.log(APIKEY);
   return (
-    <View className="flex-1 items-center justify-center">
+    <SafeAreaView className="flex-1 items-center justify-center">
       <Button title="Login" onPress={() => router.push("/login")} />
       <Button title="Signup" onPress={() => router.push("/signup")} />
-    </View>
+      <StatusBar style="dark" />
+    </SafeAreaView>
   );
 };
