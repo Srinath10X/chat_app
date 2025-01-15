@@ -1,9 +1,13 @@
-import { Text, View } from "react-native";
+import { APIKEY } from "@env";
+import { router } from "expo-router";
+import { Button, View } from "react-native";
 
 export default () => {
+  console.log(APIKEY);
   return (
     <View className="flex-1 items-center justify-center">
-      <Text className="font-bold">Edit app/index.tsx to edit this screen.</Text>
+      <Button title="Login" onPress={() => router.push("/login")} />
+      <Button title="Signup" onPress={() => router.push("/signup")} />
     </View>
   );
 };
