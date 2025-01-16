@@ -1,22 +1,22 @@
-import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, Button, TextInput } from "react-native";
-import { router } from "expo-router";
 import { useState } from "react";
+import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { View, Text, Button, TextInput } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
 
 const signUp = () => {
-  const [email, setEmail] = useState<string>("");
-  const [pass, setPass] = useState<string>("");
   const auth = getAuth();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const signUp = async () => {
-    if (!email && !pass) alert("Please Enter your email and password");
+    if (!email && !password) alert("Please Enter your email and password");
     if (!email) alert("Please enter your email");
-    if (!pass) alert("Please enter your password");
+    if (!password) alert("Please enter your password");
 
-    createUserWithEmailAndPassword(auth, email, pass)
-      .then(() => router.replace("/(root)/(tabs)"))
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => router.replace("/chats"))
       .catch((error) => alert(error.message));
   };
 
@@ -35,7 +35,7 @@ const signUp = () => {
           className="border border-black"
           placeholder="Enter your password"
           secureTextEntry
-          onChangeText={(text: string) => setPass(text)}
+          onChangeText={(text: string) => setPassword(text)}
         />
       </View>
       <Button title="SignUp" onPress={signUp} />

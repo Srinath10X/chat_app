@@ -1,6 +1,6 @@
 import { router } from "expo-router";
-import { StatusBar } from "expo-status-bar";
 import { Button } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default () => {

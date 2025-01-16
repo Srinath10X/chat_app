@@ -1,8 +1,8 @@
+import { Stack } from "expo-router";
 import { initializeApp } from "firebase/app";
-import { initializeAuth, getReactNativePersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { initializeAuth, getReactNativePersistence } from "firebase/auth";
 import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
-import { Slot } from "expo-router";
 import "./global.css";
 
 const firebaseConfig = {
@@ -17,10 +17,18 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-initializeAuth(app, {
-  persistence: getReactNativePersistence(ReactNativeAsyncStorage),
-});
+try {
+  initializeAuth(app, {
+    persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+  });
+} catch (e) {}
 
 getFirestore(app);
 
-export default Slot;
+export default () => {
+  return (
+    <Stack initialRouteName="index" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="index" />
+    </Stack>
+  );
+};
